@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: lecture-management-api
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:./data/lecture
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
