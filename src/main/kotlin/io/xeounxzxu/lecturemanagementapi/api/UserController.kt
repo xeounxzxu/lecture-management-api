@@ -1,5 +1,7 @@
 package io.xeounxzxu.lecturemanagementapi.api
 
+import io.xeounxzxu.lecturemanagementapi.api.dto.UserLoginRequest
+import io.xeounxzxu.lecturemanagementapi.api.dto.UserLoginResponse
 import io.xeounxzxu.lecturemanagementapi.api.dto.UserSignupRequest
 import io.xeounxzxu.lecturemanagementapi.service.UserService
 import jakarta.validation.Valid
@@ -20,6 +22,17 @@ class UserController(
     ) {
         userService.signup(
             dto = request.toDto()
+        )
+    }
+
+    @PostMapping("/login")
+    fun login(
+        @RequestBody
+        request: UserLoginRequest
+    ): UserLoginResponse {
+        val data = userService.login(request.toDto())
+        return UserLoginResponse(
+            token = data
         )
     }
 }
