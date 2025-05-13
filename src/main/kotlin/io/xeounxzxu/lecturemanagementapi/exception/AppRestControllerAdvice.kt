@@ -17,6 +17,32 @@ private val log = KotlinLogging.logger {}
 class AppRestControllerAdvice {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun error(
+        ex: IllegalArgumentException
+    ): ResponseEntity<ErrorResponse> {
+        log.error(ex) { ex.message }
+        return ResponseEntity.of(
+            Optional.of(
+                ErrorResponse.toBadRequest(ex.message)
+            )
+        )
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(IllegalStateException::class)
+    fun error(
+        ex: IllegalStateException
+    ): ResponseEntity<ErrorResponse> {
+        log.error(ex) { ex.message }
+        return ResponseEntity.of(
+            Optional.of(
+                ErrorResponse.toBadRequest(ex.message)
+            )
+        )
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(HttpMessageNotReadableException::class)
     fun error(
         ex: HttpMessageNotReadableException

@@ -16,9 +16,11 @@ data class ErrorResponse(val message: String) {
             )
         }
 
-        fun toBadRequest(): ErrorResponse {
+        fun toBadRequest(
+            message: String? = null
+        ): ErrorResponse {
             return ErrorResponse(
-                message = DEFAULT_BAD_REQUEST
+                message = message ?: DEFAULT_BAD_REQUEST
             )
         }
     }

@@ -1,13 +1,37 @@
+### 유저 가입 API - 강사
 
-### 유저 가입 API
-
-POST http://localhost:8080/api/users HTTP/1.1
+POST http://localhost:8080/v1/users HTTP/1.1
 Content-Type: application/json
 
 {
   "name": "test",
-  "email": "test.esrese1r@naver.com",
+  "email": "test11@naver.com",
   "password": "abc123",
   "phoneNumber": "010-0000-1111",
   "userType": "TEACHER"
+}
+
+
+### 유저 가입 API - 학생
+
+POST http://localhost:8080/v1/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "test",
+  "email": "test12@naver.com",
+  "password": "abc123",
+  "phoneNumber": "010-0000-1111",
+  "userType": "STUDENT"
+}
+
+
+### 로그인
+
+POST http://localhost:8080/v1/login HTTP/1.1
+Content-Type: application/json
+
+{
+"email": "test12@naver.com",
+"password": "abc123"
 }

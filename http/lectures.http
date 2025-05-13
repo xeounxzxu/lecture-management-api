@@ -1,0 +1,11 @@
+### 강의 등록
+
+POST http://localhost:8080/v1/lectures HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer 94a78989-b1f5-41f5-9412-e082aa148b39
+
+{
+  "title": "너나위",
+  "maxCapacity": "10",
+  "price": "200,000"
+}

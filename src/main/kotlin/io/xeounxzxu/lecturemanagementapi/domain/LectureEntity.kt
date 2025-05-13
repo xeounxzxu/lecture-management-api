@@ -2,6 +2,9 @@ package io.xeounxzxu.lecturemanagementapi.domain
 
 import jakarta.persistence.*
 import org.hibernate.annotations.Comment
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedDate
+import java.time.LocalDateTime
 
 @Entity(name = "lecture")
 class LectureEntity(
@@ -28,5 +31,11 @@ class LectureEntity(
 
     @Column(name = "price", nullable = false)
     @Comment("강의 가격 (원 단위)")
-    val price: Int
+    val price: Int,
+
+    @CreatedDate
+    val createdDateTime: LocalDateTime? = null,
+
+    @LastModifiedDate
+    val updatedDateTime: LocalDateTime? = null,
 )
